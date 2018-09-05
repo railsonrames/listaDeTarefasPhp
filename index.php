@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 
+<?php include 'db.php';
+
+$sql = "select * from tarefas";
+$registros = $db->query($sql);
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <title>Lista de tarefas</title>
 </head>
@@ -29,10 +35,10 @@
                                     <h4 class="modal-title">Inserir tarefa</h4>
                                 </div>
                                 <div class="modal-body">
-                                <form action="">
+                                <form method="post" action="incluir.php">
                                     <div class="form-grup">
-                                        <label for=""></label>
-                                        <input type="text" require name="tarefa" class="form-control">
+                                        <label>Título da tarefa</label>
+                                        <input type="text" required name="titulo" class="form-control">
                                     </div>
                                     <input type="submit" name="enviar" value="Salvar" class="btn btn-success">
                                 </form>
@@ -52,16 +58,15 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <?php while($registro = $registros->fetch_assoc()): ?>
                             <tr>
-                                <th>1</th>
-                                <td class="col-md-10">Mark</td>
-                                <td>
-                                    <a href="" class="btn btn-success">Alterar</a>
-                                </td>
-                                <td>
-                                    <a href="" class="btn btn-danger">Excluir</a>
-                                </td>
+                                <!-- <?php var_dump($registro);?> -->
+                                <th><?php echo $registro['id_tarefa']?></th>
+                                <td class="col-md-10"><?php echo $registro['titulo_tarefa']?></td>
+                                <td><a href="" class="btn btn-success">Alterar</a></td>
+                                <td><a href="" class="btn btn-danger">Excluir</a></td>
                             </tr>
+                            <?php endwhile; ?>
                         </tbody>
                     </table>
                 </table>
