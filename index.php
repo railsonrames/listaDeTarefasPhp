@@ -56,10 +56,10 @@
                                 <th>1</th>
                                 <td class="col-md-10">Mark</td>
                                 <td>
-                                    <ac href="" class="btn btn-success">Alterar</a>
+                                    <a href="" class="btn btn-success">Alterar</a>
                                 </td>
                                 <td>
-                                    <ac href="" class="btn btn-danger">Excluir</a>
+                                    <a href="" class="btn btn-danger">Excluir</a>
                                 </td>
                             </tr>
                         </tbody>
