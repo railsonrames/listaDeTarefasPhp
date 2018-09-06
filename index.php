@@ -36,7 +36,7 @@ $registros = $db->query($sql);
                                 </div>
                                 <div class="modal-body">
                                 <form method="post" action="incluir.php">
-                                    <div class="form-grup">
+                                    <div class="form-group">
                                         <label>Título da tarefa</label>
                                         <input type="text" required name="titulo" class="form-control">
                                     </div>
@@ -63,7 +63,7 @@ $registros = $db->query($sql);
                                 <!-- <?php var_dump($registro);?> -->
                                 <th><?php echo $registro['id_tarefa'];?></th>
                                 <td class="col-md-10"><?php echo $registro['titulo_tarefa']?></td>
-                                <td><a href="" class="btn btn-success">Alterar</a></td>
+                                <td><a href="atualizar.php?id=<?php echo $registro['id_tarefa'];?>" class="btn btn-success">Alterar</a></td>
                                 <td><a href="excluir.php?id=<?php echo $registro['id_tarefa'];?>" class="btn btn-danger">Excluir</a></td>
                             </tr>
                             <?php endwhile; ?>
