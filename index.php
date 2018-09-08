@@ -5,8 +5,8 @@
 
 include 'db.php';
 
-$pagina = (isset($_GET['pagina']) ? $_GET['pagina'] : 1);
-$porPagina = (isset($_GET['por-pagina']) && ($_GET['por-pagina']) <=50 ? $_GET['por-pagina'] : 5);
+$pagina = (isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1);
+$porPagina = (isset($_GET['por-pagina']) && (int)$_GET['por-pagina'] <=50 ? (int)$_GET['por-pagina'] : 5);
 $inicioPaginacao = ($pagina > 1) ? ($pagina * $porPagina) - $porPagina : 0;
 $sql = "select * from tarefas limit ".$inicioPaginacao.",".$porPagina." ";
 $qtdRegistros = $db->query("select * from tarefas")->num_rows;
@@ -32,7 +32,7 @@ $registros = $db->query($sql);
             <div class="col-md-10 col-md-offset-1">
                 <table class="table">
                     <button type="button" data-toggle="modal" data-target="#modalIncluir" class="btn btn-success">Incluir tarefa</button>
-                    <button type="button" class="btn btn-default pull-right">Imprimir</button>
+                    <button type="button" class="btn btn-default pull-right" onclick="print()">Imprimir</button>
                     <hr>
                     <br>
                     <div id="modalIncluir" class="modal fade" role="dialog">
@@ -52,13 +52,13 @@ $registros = $db->query($sql);
                                 </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                    <table class="table">
+                    <table class="table table-hover">
                         <thead>
                             <tr>
                                 <th>#</th>
