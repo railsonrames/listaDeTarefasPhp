@@ -13,7 +13,7 @@ $registros = $db->query($sql);
 $registro = $registros->fetch_assoc();
 // var_dump($registro);
 if(isset($_POST['enviar'])){
-    $titulo = $_POST['titulo'];
+    $titulo = htmlspecialchars($_POST['titulo']);
     $sql_update = "update tarefas set titulo_tarefa='$titulo' where id_tarefa='$id'";
     $db->query($sql_update);
     header('location: index.php');

@@ -33,6 +33,11 @@ $registros = $db->query($sql);
                 <table class="table">
                     <button type="button" data-toggle="modal" data-target="#modalIncluir" class="btn btn-success">Incluir tarefa</button>
                     <button type="button" class="btn btn-default pull-right" onclick="print()">Imprimir</button>
+                    <div class="col-md4">
+                    <form action="pesquisar.php" method="post" class="form-group">
+                        <input type="text" placeholder="Pesquisar" name="pesquisa" class="form-control">
+                    </form>
+                    </div>
                     <hr>
                     <br>
                     <div id="modalIncluir" class="modal fade" role="dialog">
