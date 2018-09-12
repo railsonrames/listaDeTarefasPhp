@@ -76,8 +76,8 @@ $registros = $db->query($sql);
                                 <!-- <?php var_dump($registro);?> -->
                                 <th><?php echo $registro['id_tarefa'];?></th>
                                 <td class="col-md-10"><?php echo $registro['titulo_tarefa']?></td>
-                                <td><a href="atualizar.php?id=<?php echo $registro['id_tarefa'];?>" class="btn btn-success">Alterar</a></td>
-                                <td><a href="excluir.php?id=<?php echo $registro['id_tarefa'];?>" class="btn btn-danger">Excluir</a></td>
+                                <td><a href="atualizar.php?id=<?php echo $registro['id_tarefa'];?>&pagina=<?php echo $pagina;?>" class="btn btn-success">Alterar</a></td>
+                                <td><a href="excluir.php?id=<?php echo $registro['id_tarefa'];?>&pagina=<?php echo $pagina;?>" class="btn btn-danger">Excluir</a></td>
                             </tr>
                             <?php endwhile; ?>
                         </tbody>

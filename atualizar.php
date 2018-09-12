@@ -6,6 +6,7 @@
 include 'db.php';
 
 $id = (int)$_GET['id'];
+$paginaAtual = $_GET['pagina'];
 // var_dump($id);
 $sql = "select * from tarefas where id_tarefa='$id'";
 // var_dump($sql);
@@ -16,7 +17,7 @@ if(isset($_POST['enviar'])){
     $titulo = htmlspecialchars($_POST['titulo']);
     $sql_update = "update tarefas set titulo_tarefa='$titulo' where id_tarefa='$id'";
     $db->query($sql_update);
-    header('location: index.php');
+    header('location: index.php?pagina='.$paginaAtual);
 }
 ?>
 
