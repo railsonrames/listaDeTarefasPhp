@@ -9,7 +9,7 @@ $pagina = (isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1);
 $porPagina = (isset($_GET['por-pagina']) && (int)$_GET['por-pagina'] <=50 ? (int)$_GET['por-pagina'] : 5);
 $inicioPaginacao = ($pagina > 1) ? ($pagina * $porPagina) - $porPagina : 0;
 $sql = "select * from tarefas limit ".$inicioPaginacao.",".$porPagina." ";
-var_dump($sql);
+// var_dump($sql);
 $qtdRegistros = $db->query("select * from tarefas")->num_rows;
 $paginas = ceil($qtdRegistros/$porPagina);
 $registros = $db->query($sql);
@@ -85,7 +85,7 @@ $registros = $db->query($sql);
                     <center>
                         <ul class="pagination">
                             <?php for ($i = 1; $i <= $paginas; $i++): ?>
-                            <li><a href="?pagina=<?php echo $i; ?>&por-pagina=<?php echo $porPagina; ?>"><?php echo $i; ?></a></li>
+                                <li><a href="?pagina=<?php echo $i; ?>&por-pagina=<?php echo $porPagina; ?>"><?php echo $i; ?></a></li>
                             <?php endfor; ?>
                         </ul>
                     </center>
