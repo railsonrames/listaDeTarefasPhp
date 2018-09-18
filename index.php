@@ -85,7 +85,7 @@ $registros = $db->query($sql);
                     <center>
                         <ul class="pagination">
                             <?php for ($i = 1; $i <= $paginas; $i++): ?>
-                                <li><a href="?pagina=<?php echo $i; ?>&por-pagina=<?php echo $porPagina; ?>"><?php echo $i; ?></a></li>
+                                <li class="page-item"><a class="page-link" href="?pagina=<?php echo $i; ?>&por-pagina=<?php echo $porPagina; ?>"><?php echo $i; ?></a></li>
                             <?php endfor; ?>
                         </ul>
                     </center>
@@ -96,5 +96,11 @@ $registros = $db->query($sql);
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+<script>
+    $(document).ready(function()
+    {
+        let elPaginaAtual = $('li')["<?php echo $pagina - 1; ?>"];
+        $(elPaginaAtual).addClass("page-item active");
+    });
+</script>
 </html>
