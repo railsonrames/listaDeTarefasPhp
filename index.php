@@ -3,7 +3,15 @@
 
 <?php
 
+
+
+
+
 include 'db.php';
+
+
+
+
 
 $pagina = (isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1);
 $porPagina = (isset($_GET['por-pagina']) && (int)$_GET['por-pagina'] <=50 ? (int)$_GET['por-pagina'] : 5);

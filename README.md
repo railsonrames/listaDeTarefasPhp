@@ -9,3 +9,5 @@ Para isso, vou usar os requisitos do instrutor, são eles:
 * MySQL
 
 Basicamente. Nos próximos passos vamos atualizar aqui.
+
+Exemplificando código.
