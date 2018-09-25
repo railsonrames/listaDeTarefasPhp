@@ -5,6 +5,15 @@
 
 include 'db.php';
 
+    
+    <b>
+        <br>
+        
+        
+        
+        
+    
+    
 $texto = htmlspecialchars($_POST['pesquisa']);
 $sql = "SELECT * FROM tarefas WHERE titulo_tarefa LIKE '%$texto%'";
 $registros = $db->query($sql);
