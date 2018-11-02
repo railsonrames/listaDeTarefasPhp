@@ -16,7 +16,7 @@ include 'db.php';
 $pagina = (isset($_GET['pagina']) ? (int)$_GET['pagina'] : 1);
 $porPagina = (isset($_GET['por-pagina']) && (int)$_GET['por-pagina'] <=50 ? (int)$_GET['por-pagina'] : 5);
 $inicioPaginacao = ($pagina > 1) ? ($pagina * $porPagina) - $porPagina : 0;
-$sql = "select * from tarefas limit ".$inicioPaginacao.",".$porPagina." ";
+$sql = "select * from tarefas order by `id_tarefa` limit ".$inicioPaginacao.",".$porPagina." ";
 // var_dump($sql);
 $qtdRegistros = $db->query("select * from tarefas")->num_rows;
 $paginas = ceil($qtdRegistros/$porPagina);
